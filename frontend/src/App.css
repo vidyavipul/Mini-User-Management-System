@@ -237,3 +237,9 @@ input:focus {
   color: #9aa8c6;
   font-size: 14px;
 }
+
+.divider {
+  height: 1px;
+  background: #1f2a44;
+  margin: 16px 0;
+}

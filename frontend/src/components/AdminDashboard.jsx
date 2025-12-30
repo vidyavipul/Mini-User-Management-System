@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { fetchUsers, activateUser, deactivateUser } from '../api/users';
+import { Loader } from './Loader';
+import { Toast } from './Toast';
 
 export function AdminDashboard() {
   const { token } = useAuth();
@@ -55,10 +57,9 @@ export function AdminDashboard() {
       <div className="card">
         <h1>Admin Dashboard</h1>
         <p className="muted">Manage users (paginate, activate/deactivate).</p>
-
-        {loading && <div className="toast">Loading...</div>}
-        {error && <div className="toast error">{error}</div>}
-        {message && <div className="toast success">{message}</div>}
+        <Loader show={loading} />
+        <Toast message={error} type="error" />
+        <Toast message={message} type="success" />
 
         <div className="table-wrap">
           <table className="table">

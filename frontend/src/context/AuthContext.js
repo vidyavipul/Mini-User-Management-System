@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { apiRequest } from '../api/client';
+import { fetchMe as fetchMeApi } from '../api/profile';
 
 const AuthContext = createContext(null);
 
@@ -24,7 +25,7 @@ export function AuthProvider({ children }) {
   const fetchMe = async (authToken = token) => {
     if (!authToken) return;
     try {
-      const data = await apiRequest('/api/auth/me', { token: authToken });
+      const data = await fetchMeApi({ token: authToken });
       setUser(data.user);
     } catch (err) {
       console.error(err);
