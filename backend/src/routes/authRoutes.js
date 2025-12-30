@@ -18,7 +18,7 @@ const buildToken = (userId, role) => {
 
 router.post('/signup', async (req, res, next) => {
   try {
-    const { fullName, email, password } = req.body;
+    const { fullName, email, password } = req.body || {};
 
     if (!fullName || !email || !password) {
       return res.status(400).json({ message: 'Full name, email, and password are required' });
@@ -67,7 +67,7 @@ router.post('/signup', async (req, res, next) => {
 
 router.post('/login', async (req, res, next) => {
   try {
-    const { email, password } = req.body;
+    const { email, password } = req.body || {};
     if (!email || !password) {
       return res.status(400).json({ message: 'Email and password are required' });
     }
