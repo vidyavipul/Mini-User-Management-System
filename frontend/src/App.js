@@ -4,6 +4,7 @@ import './App.css';
 import { useAuth } from './context/AuthContext';
 import { ProtectedRoute, AdminRoute } from './components/ProtectedRoute';
 import { Navbar } from './components/Navbar';
+import { AdminDashboard } from './components/AdminDashboard';
 
 function AuthPage({ mode = 'login' }) {
   const { signup, login, loading, error, setError } = useAuth();
@@ -114,14 +115,7 @@ function ProfilePage() {
 }
 
 function AdminPage() {
-  return (
-    <div className="layout">
-      <div className="card">
-        <h1>Admin Dashboard</h1>
-        <p className="muted">Admin-only area. User list will go here.</p>
-      </div>
-    </div>
-  );
+  return <AdminDashboard />;
 }
 
 function App() {

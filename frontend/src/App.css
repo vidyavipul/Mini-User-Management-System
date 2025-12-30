@@ -181,3 +181,59 @@ input:focus {
   font-size: 12px;
   color: #7f8bb0;
 }
+
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 12px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #0d1326;
+  border: 1px solid #1f2a44;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #1f2a44;
+  text-align: left;
+  font-size: 14px;
+}
+
+.table th {
+  background: #11182f;
+  color: #c5d0eb;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.status.active {
+  color: #56e39f;
+}
+
+.status.inactive {
+  color: #ff7b7b;
+}
+
+.btn.sm {
+  padding: 8px 10px;
+  font-size: 13px;
+}
+
+.pagination {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.page-label {
+  color: #9aa8c6;
+  font-size: 14px;
+}
