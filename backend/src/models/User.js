@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema(
       unique: true,
       lowercase: true,
       trim: true,
+      index: true, // keep a single unique index via field definition
     },
     passwordHash: {
       type: String,
@@ -39,7 +40,5 @@ const userSchema = new mongoose.Schema(
     timestamps: true, // adds createdAt and updatedAt
   }
 );
-
-userSchema.index({ email: 1 }, { unique: true });
 
 export const User = mongoose.model('User', userSchema);
