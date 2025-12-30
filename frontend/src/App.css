@@ -276,3 +276,99 @@ input:focus {
     transform: rotate(360deg);
   }
 }
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 12, 25, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+
+.modal-card {
+  background: #11182f;
+  border: 1px solid #1f2a44;
+  border-radius: 16px;
+  padding: 24px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.modal-title {
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+
+.modal-message {
+  margin: 0 0 20px;
+  color: #9aa8c6;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn.danger {
+  background: linear-gradient(135deg, #e53935, #d32f2f);
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .nav-right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .chip {
+    display: block;
+    margin: 0 0 6px;
+  }
+
+  .card {
+    padding: 16px;
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px 6px;
+    font-size: 12px;
+  }
+
+  .btn.sm {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .panel {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+

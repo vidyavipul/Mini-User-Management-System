@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { fetchUsers, activateUser, deactivateUser } from '../api/users';
 import { Loader } from './Loader';
 import { Toast } from './Toast';
+import { Modal, useModal } from './Modal';
 
 export function AdminDashboard() {
   const { token } = useAuth();
@@ -12,8 +13,9 @@ export function AdminDashboard() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
+  const modal = useModal();
 
-  const load = async (p = page) => {
+  const load = useCallback(async (p = page) => {
     if (!token) return;
     setLoading(true);
     setError('');
@@ -28,28 +30,34 @@ export function AdminDashboard() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [token, page]);
 
   useEffect(() => {
     load(1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
-  const confirmAnd = async (actionFn, userId, label) => {
-    const ok = window.confirm(`Are you sure you want to ${label} this user?`);
-    if (!ok) return;
-    setLoading(true);
-    setError('');
-    setMessage('');
-    try {
-      await actionFn({ userId, token });
-      setMessage(`User ${label}d`);
-      await load(page);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
+  const handleAction = (actionFn, userId, label) => {
+    const isDeactivate = label === 'deactivate';
+    modal.show({
+      title: `${label.charAt(0).toUpperCase() + label.slice(1)} User`,
+      message: `Are you sure you want to ${label} this user?`,
+      danger: isDeactivate,
+      onConfirm: async () => {
+        setLoading(true);
+        setError('');
+        setMessage('');
+        try {
+          await actionFn({ userId, token });
+          setMessage(`User ${label}d`);
+          await load(page);
+        } catch (err) {
+          setError(err.message);
+        } finally {
+          setLoading(false);
+        }
+      },
+    });
   };
 
   return (
@@ -89,15 +97,15 @@ export function AdminDashboard() {
                       <button
                         className="btn primary sm"
                         disabled={loading}
-                        onClick={() => confirmAnd(activateUser, u._id || u.id, 'activate')}
+                        onClick={() => handleAction(activateUser, u._id || u.id, 'activate')}
                       >
                         Activate
                       </button>
                     ) : (
                       <button
-                        className="btn secondary sm"
+                        className="btn danger sm"
                         disabled={loading}
-                        onClick={() => confirmAnd(deactivateUser, u._id || u.id, 'deactivate')}
+                        onClick={() => handleAction(deactivateUser, u._id || u.id, 'deactivate')}
                       >
                         Deactivate
                       </button>
@@ -121,6 +129,8 @@ export function AdminDashboard() {
           </button>
         </div>
       </div>
+
+      <Modal {...modal.props} />
     </div>
   );
 }
