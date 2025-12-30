@@ -9,6 +9,44 @@ body {
   color: #e8ecf3;
 }
 
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: #0d1326;
+  border-bottom: 1px solid #1f2a44;
+}
+
+.nav a {
+  color: #e8ecf3;
+  text-decoration: none;
+  margin-left: 12px;
+  font-weight: 600;
+}
+
+.nav a:hover {
+  color: #7f5af0;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #e8ecf3;
+  cursor: pointer;
+  margin-left: 12px;
+  font-weight: 600;
+}
+
+.chip {
+  background: #161f38;
+  border: 1px solid #1f2a44;
+  border-radius: 999px;
+  padding: 6px 10px;
+  margin-right: 8px;
+  font-size: 12px;
+}
+
 .layout {
   min-height: 100vh;
   display: flex;
