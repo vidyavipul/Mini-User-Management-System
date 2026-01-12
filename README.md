@@ -1,18 +1,10 @@
-# Mini User Management System
+Mini User Management System
 
 A full-stack web application for managing user accounts with JWT authentication, role-based access control (RBAC), and admin user management. Built as part of a Backend Developer Intern assessment.
 
 ---
 
-## 🚀 Live Demo
-
-- **Frontend**: [https://your-frontend-url.vercel.app](https://your-frontend-url.vercel.app)
-- **Backend API**: [https://your-backend-url.onrender.com](https://your-backend-url.onrender.com)
-- **API Docs**: [Postman Collection](#api-documentation)
-
----
-
-## 📋 Project Overview
+📋 Project Overview
 
 This system allows:
 - Users to **sign up**, **log in**, view/update their profile, and change passwords.
@@ -21,7 +13,7 @@ This system allows:
 
 ---
 
-## 🛠 Tech Stack
+🛠 Tech Stack
 
 | Layer      | Technology                          |
 |------------|-------------------------------------|
@@ -34,7 +26,7 @@ This system allows:
 
 ---
 
-## 📁 Project Structure
+📁 Project Structure
 
 ```
 Mini-User-Management-System/
@@ -64,9 +56,9 @@ Mini-User-Management-System/
 
 ---
 
-## ⚙️ Environment Variables
+⚙️ Environment Variables
 
-### Backend (`backend/.env`)
+Backend (`backend/.env`)
 
 | Variable      | Description                     |
 |---------------|---------------------------------|
@@ -74,7 +66,7 @@ Mini-User-Management-System/
 | `MONGODB_URI` | MongoDB Atlas connection string |
 | `JWT_SECRET`  | Secret for signing JWT tokens   |
 
-### Frontend (`frontend/.env`)
+Frontend (`frontend/.env`)
 
 | Variable                  | Description                        |
 |---------------------------|------------------------------------|
@@ -82,14 +74,14 @@ Mini-User-Management-System/
 
 ---
 
-## 🏃 Setup Instructions
+🏃 Setup Instructions
 
-### Prerequisites
+Prerequisites
 - Node.js v18+
 - npm or yarn
 - MongoDB Atlas account (or local MongoDB)
 
-### Backend Setup
+Backend Setup
 
 ```bash
 cd backend
@@ -99,7 +91,7 @@ cp .env.example .env
 npm run dev
 ```
 
-### Frontend Setup
+Frontend Setup
 
 ```bash
 cd frontend
@@ -107,14 +99,14 @@ npm install
 npm start
 ```
 
-### Run Tests
+Run Tests
 
 ```bash
 cd backend
 npm test
 ```
 
-### Promote a User to Admin
+Promote a User to Admin
 
 ```bash
 cd backend
@@ -123,11 +115,11 @@ npm run make-admin -- --email=user@example.com
 
 ---
 
-## 🔌 API Documentation
+ 🔌 API Documentation
 
 Base URL: `http://localhost:5001` (or deployed URL)
 
-### Authentication
+Authentication
 
 | Method | Endpoint           | Description              | Auth Required |
 |--------|--------------------|--------------------------|---------------|
@@ -136,7 +128,7 @@ Base URL: `http://localhost:5001` (or deployed URL)
 | GET    | `/api/auth/me`     | Get current user info    | Yes           |
 | POST   | `/api/auth/logout` | Logout (client-side)     | No            |
 
-### User Management
+User Management
 
 | Method | Endpoint                      | Description              | Auth Required |
 |--------|-------------------------------|--------------------------|---------------|
@@ -147,12 +139,12 @@ Base URL: `http://localhost:5001` (or deployed URL)
 | PATCH  | `/api/users/:id/activate`     | Activate a user          | Admin only    |
 | PATCH  | `/api/users/:id/deactivate`   | Deactivate a user        | Admin only    |
 
-### Example Requests
+Example Requests
 
 <details>
 <summary>POST /api/auth/signup</summary>
 
-**Request:**
+Request:
 ```json
 {
   "fullName": "John Doe",
@@ -161,7 +153,7 @@ Base URL: `http://localhost:5001` (or deployed URL)
 }
 ```
 
-**Response (201):**
+Response (201):
 ```json
 {
   "token": "eyJhbGc...",
@@ -217,9 +209,9 @@ Base URL: `http://localhost:5001` (or deployed URL)
 
 ---
 
-## 🚀 Deployment Instructions
+🚀 Deployment Instructions
 
-### Backend (Render)
+Backend (Render)
 
 1. Push code to GitHub.
 2. Create a new Web Service on [Render](https://render.com).
@@ -227,7 +219,7 @@ Base URL: `http://localhost:5001` (or deployed URL)
 4. Set environment variables (`MONGODB_URI`, `JWT_SECRET`, `PORT`).
 5. Deploy.
 
-### Frontend (Vercel)
+Frontend (Vercel)
 
 1. Push code to GitHub.
 2. Import project on [Vercel](https://vercel.com).
@@ -235,7 +227,7 @@ Base URL: `http://localhost:5001` (or deployed URL)
 4. Add env var `REACT_APP_API_BASE_URL` pointing to your backend URL.
 5. Deploy.
 
-### Database (MongoDB Atlas)
+Database (MongoDB Atlas)
 
 1. Create a free cluster on [MongoDB Atlas](https://www.mongodb.com/atlas).
 2. Whitelist IPs (or allow all: `0.0.0.0/0`).
@@ -243,7 +235,7 @@ Base URL: `http://localhost:5001` (or deployed URL)
 
 ---
 
-## ✅ Features Checklist
+✅ Features Checklist
 
 - [x] User signup with validation
 - [x] User login with JWT
@@ -263,6 +255,6 @@ Base URL: `http://localhost:5001` (or deployed URL)
 
 ---
 
-## 📄 License
+📄 License
 
 ISC
