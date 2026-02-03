@@ -1,7 +1,6 @@
 Mini User Management System
 
-A full-stack web application for managing user accounts with JWT authentication, role-based access control (RBAC), and admin user management. Built as part of a Backend Developer Intern assessment.
-
+A full-stack web application for managing user accounts with JWT authentication, role-based access control (RBAC), and admin user management. 
 ---
 
 📋 Project Overview
